@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title of the document</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="jquery-fields.js"></script>
+</head>
+
+<body style="padding:0 30px">
+  <h3>Form</h3>
+  <form id="test" action="" method="post">
+    <p>
+      <input type="text" name="first_name" />
+    </p>
+    <p>
+      <input type="text" name="second_name" />
+    </p>
+    <p>
+      <input type="text" name="pet" />
+    </p>
+    <p>
+      <input type="text" name="eyes" />
+    </p>
+    <p>
+      <button>Send</button>
+    </p>
+  </form>
+
+  <script>
+    jQuery(function($){
+
+      // You can work just with values
+
+      var form = $('form#test').fieldValues();
+
+      form.first_name('Arthur');
+      form.second_name('Araújo');
+      form.pet('hamster');
+      form.eyes('brown');
+
+      console.log(form.first_name()+' '+form.second_name()+' likes '+form.pet()+'!');
+
+      // Or get all input objects
+
+      var form = $('form#test').fields();
+
+      form.first_name.val('Arthur!!!');
+      form.eyes.hide();
+
+    });
+  </script>
+</body>
+
+</html>
